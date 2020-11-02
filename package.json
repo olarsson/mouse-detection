@@ -8,6 +8,10 @@
   },
   "author": "Olof Larsson",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olarsson/mouse-detection.git"
+  },
   "keywords": [
     "detect mouse",
     "find mouse",
