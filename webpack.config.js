@@ -1,48 +1,48 @@
 const path = require('path');
-// const extract = require("mini-css-extract-plugin");
 
-module.exports = {
-  entry: './example/src/app.js',
-  output: {
-    path: path.resolve(__dirname, 'example/dist'),
-    filename: 'bundle.js'
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          // {
-          //   loader: extract.loader
-          // },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader',
+module.exports = function (env, argv) {
+  return {
+    entry: {
+      'mouse-detection': './index.js',
+      'example': './example/src/example.js'
+    },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].min.js'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules)/,
+          use: {
+            loader: 'babel-loader',
             options: {
-              implementation: require('sass')
-            }
+              presets: [
+                ["@babel/preset-env"]
+              ],
+              plugins: [
+                "@babel/plugin-transform-arrow-functions"
+              ],
+            }            
           }
-        ]
-      }
-    ]
-  },
-  // plugins: [
-  //   new extract({
-  //     filename: 'bundle.css'
-  //   })
-  // ],
-  mode: 'development'
+        },
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: require('sass')
+              }
+            }
+          ]
+        }
+      ]
+    },
+    mode: 'development'
+  };
 }
