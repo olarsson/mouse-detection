@@ -1,5 +1,5 @@
 # MouseDetection
-Detects the prescence of a mouse as reliably as possible.
+Detects the prescence of a mouse as reliably as possible.  
 [Live demo](https://olarsson.github.io/mouse-detection/example/index.html)
 
 ## The problem
