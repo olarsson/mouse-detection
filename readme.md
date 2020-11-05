@@ -1,5 +1,6 @@
 # MouseDetection
 Detects the prescence of a mouse as reliably as possible.
+[Live demo](https://olarsson.github.io/mouse-detection/example/index.html)
 
 ## The problem
 There is currently no 100% way to detect the prescence of a mouse in the browser without making false assumptions. This project attempts to solve this problem.
